@@ -1,0 +1,3 @@
+SET ( TARGET swaping )
+
+ADD_EXECUTABLE( ${TARGET} ${TARGET}.cpp )

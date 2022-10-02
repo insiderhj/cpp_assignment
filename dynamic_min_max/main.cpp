@@ -1,22 +1,19 @@
 #include <iostream>
+#include "minmax.h"
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
-	int size;
+	int size = argc - 1;
 	int *arr;
 	int min_val, max_val;
+	
+	if (argc == 1) return 0;
 
-	cin >> size;
 	arr = new int[size];
 	for (int i = 0; i < size; i++)
-		cin >> arr[i];
-	min_val = arr[0];
-	max_val = arr[0];
-	for (int i = 1; i < size; i++) {
-		if (min_val > arr[i]) min_val = arr[i];
-		if (max_val < arr[i]) max_val = arr[i];
-	}
+		arr[i] = stoi(argv[i + 1]);
+	getMinMax(arr, size, min_val, max_val);
 	cout << "min: " << min_val << endl;
 	cout << "max: " << max_val << endl;
 	delete[] arr;
